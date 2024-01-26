@@ -1,5 +1,5 @@
 let toggleform = document.querySelector('#toggleform') as HTMLButtonElement;
-let createProjectform = document.querySelector('.createEmployeeform') as HTMLFormElement
+let createProjectform = document.querySelector('.createProjectform') as HTMLFormElement
 
 let projectName = document.querySelector('#projectName') as HTMLInputElement
 let owner = document.querySelector('#owner') as HTMLInputElement
@@ -21,11 +21,11 @@ let currentProject:number;
 toggleform.addEventListener("click", (()=>{
     if(createProjectform.style.display == 'none'){
         createProjectform.style.display = 'flex'
-        toggleform.textContent = 'Close Form'
+        toggleform.textContent = 'Close'
         toggleform.style.backgroundColor = 'red'
     }else{
         createProjectform.style.display = 'none'
-        toggleform.textContent = 'Add User'
+        toggleform.textContent = 'Add Project'
         toggleform.style.backgroundColor = '#0c63dd'
     }
 }))
@@ -80,7 +80,7 @@ createProjectform.addEventListener("submit", (e)=>{
             Projects.push(projectDetails)
         }
 
-        instance.displayEmployees()
+        instance.displayProjects()
 
         projectName.value=""
         owner.value=""
@@ -88,11 +88,11 @@ createProjectform.addEventListener("submit", (e)=>{
         Url.value=""
         budget.value=""
        description.value="" 
-      projectState.value=""
-      collaborators .value=""
-      deadline  .value=""
-     taskOverdue.value="" 
-     finance.value=""
+        projectState.value=""
+        collaborators .value=""
+        deadline  .value=""
+        taskOverdue.value="" 
+        finance.value=""
 
         createProjectform.style.display = 'none'
         toggleform.textContent = 'Add Project'
@@ -103,7 +103,7 @@ createProjectform.addEventListener("submit", (e)=>{
 
 class PROJECT{
 
-    displayEmployees(){
+    displayProjects( ){
 
         let allprofiles = document.querySelectorAll('.profiles .profile') as NodeListOf<HTMLDivElement>
 
@@ -113,15 +113,15 @@ class PROJECT{
 
         Projects.forEach((projo: Project, index:number)=>{
 
-            let profile = <HTMLTableRowElement >document.createElement('tr')
-            profile.className = "profile"
+            let profileImg = <HTMLTableRowElement >document.createElement('tr')
+            profileImg.className = "profile"
 
             let numbering = document.createElement('td') as HTMLTableCellElement
             numbering.textContent = `${index + 1}`
 
-            let profile_url = document.createElement('img') as HTMLImageElement
-            profile_url.setAttribute("src", projo.profile)
-            profile_url.className= "profileUrl"
+            let profiles= document.createElement('img') as HTMLImageElement
+            profiles.setAttribute("src", projo.profile)
+            profiles.className= "profile"
 
             let projectName = document.createElement('td') as HTMLTableCellElement
             projectName.textContent = projo.projectName
@@ -143,6 +143,7 @@ class PROJECT{
 
             let collaborators = document.createElement('td') as HTMLTableCellElement
             collaborators.textContent = projo.collaborators
+            
 
             let deadline = document.createElement('td') as HTMLTableCellElement
            deadline.textContent = projo.deadline
@@ -153,31 +154,36 @@ class PROJECT{
             let finance = document.createElement('td') as HTMLTableCellElement
            finance.textContent = projo.finance
 
+           
             let deletebtn = document.createElement('button') as HTMLButtonElement
             deletebtn.textContent = "Delete"
             deletebtn.style.backfaceVisibility = 'red'
             deletebtn.addEventListener('click', ()=>{
-                this.deleteEmployee(index)
+                this.deleteProduct(index)
             })
 
             let updatebtn = document.createElement('button') as HTMLButtonElement
             updatebtn.textContent = "Update"
-            updatebtn.style.backfaceVisibility = 'skyblue'
+            updatebtn.style.backfaceVisibility = 'green'
             updatebtn.addEventListener('click', ()=>{
-                this.updateEmployee(index)
+                this.updateProjects(index)
             })
 
             profile.appendChild(numbering)
-            profile.appendChild(profile_url)
-            profile.appendChild(profiles)
+            profile.appendChild(profileImg)
+            profile.appendChild(projectName)
+            profile.appendChild(owner)
             profile.appendChild(Url)
-            profile.appendChild(budget)
+            // profile.appendChild(profile)
             profile.appendChild(description)
-            profile.appendChild(projectState)
+            profile.appendChild(budget)
+            profile.appendChild(collaborators)
             profile.appendChild(deadline)
             profile.appendChild(taskOverdue)
             profile.appendChild(finance)
-           
+            profile.appendChild(projectState)
+        
+            
             profile.appendChild(deletebtn)
             profile.appendChild(updatebtn)
 
@@ -186,13 +192,13 @@ class PROJECT{
         })
     }
 
-    deleteEmployee(index:number){
+    deleteProduct(index:number){
     Projects.splice(index, 1)
 
-        this.displayEmployees()
+        this.displayProjects()
     }
 
-    updateEmployee(index:number){
+    updateProjects(index:number){
         currentProject= index
 
         console.log(currentProject);
@@ -200,10 +206,6 @@ class PROJECT{
         createProjectform.style.display = 'flex'
 
         let user = Projects[index]
-
-
-
-
 
 
         projectName.value=user.projectName
@@ -225,4 +227,4 @@ class PROJECT{
 
 let instance = new PROJECT()
 
-instance.displayEmployees()
+instance.displayProjects()

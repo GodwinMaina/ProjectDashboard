@@ -9,73 +9,36 @@
 </head>
 <body>
     
-
     <nav>
         <div class="logo">Project Managment Dashboard</div>
-        <button id="logoutbtn">create</button>
+        <a href="/public/create.html">Add Project</a>
     </nav>
     <hr>
 
-    <div class="form-container">
-        <form class="createEmployeeform" style="display: none;">
 
-            <label for="projectName">Project Name</label>
-                <input type="text" placeholder="Enter Project Name" id="projectName">
-           
-           <label for="">Owner</label>
-           <input type="text" placeholder="owner" id="owner">
-           
-             <label for="">Url</label>
-            <input type="text" placeholder="Input Url" id="Url">
-
-            <label for="">Description</label>
-            <input type="text" placeholder="description" id="description">
-
-            <label for="">Budget</label>
-            <input type="number" placeholder="budget" id="budget">
-
-            <label for="">Collaborators</label>
-            <input type="text" placeholder="collaborators" id="collaborators">
-
-            <label for="">Deadline</label>
-            <input type="text" placeholder="deadline" id="deadline">
-
-            <label for="">Overdue Tasks</label>
-            <input type="text" placeholder="overdue" id="overdue">
-
-            <label for="">Finance</label>
-            <input type="text" placeholder="finance" id="finance">
-
-            <select id="ProjectState">
-                <option value="">--Select project state--</option>
-                <option value="planning">Planning</option>
-                <option value="design">Design</option>
-                <option value="development">Development</option>
-                <option value="testing">Testing</option>
-                <option value="release">Release</option>
-            </select>
-            <input type="submit" value="Create Project" id="createEmployeebtn">
-        </form>
-
-        <button id="toggleform">Create Project</button>
-    </div>
+    <h2>Welcome to this Dashboard </h2>
+    <h4>let me help you to manage your projects...</h4>
+    <h5>Add projecs</h5>
+   
 
     <table class="profiles" style="margin-top: 20px;">
-
         <tr class="tableheading">
 
             <th>Project Title</th>
             <th>owner</th>
-            <th>Project field</th>
-            <th>project description</th>
-            <th>year-founded</th>
-            <th>projectUrl</th>
-            <th>State</th>
-            <th>Collaborators</th>
+            <th>ProjectUrl</th>
+            <th>Description</th>
             <th>Budget</th>
+            <th>Collaborators</th>
+            <th>Deadline</th>
+            <th>Overdue Tasks</th>
+            <th>Financier</th>
         </tr>
     </table>
 
+
+
+   
 
     <script src="/dist/index.js"></script>
 </body>

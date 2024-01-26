@@ -1,41 +1,68 @@
+
 body{
     background-color: whitesmoke;
-    font-size: 30px;
     text-align: center;
 }
+
 
 nav{
     display: flex;
     justify-content: space-between;
-    padding: 20px;
-
+    margin: 30px;
+    font-size: 30px;
 }
 
+    .createProjectform {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
 
-.createEmployeeform{
+    .createProjectform label {
+        display: flex;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
 
-   align-items: center;
-   display: flex;
-   text-align: center;
-   flex-wrap: wrap;
-    background-color:whitesmoke;
-}
+    .createProjectform input,
+    .createProjectform select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+    }
 
-.createEmployeeform input {
-width: 50vw;
-    height: 40px;
-    border-radius: 5px;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 20px auto;
-}
-#logoutbtn{
-    background-color: #5393EE;
-    border: none;
-    cursor: pointer;
+    .createProjectform input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
-}
+    .createEmployeeform input[type="submit"]:hover {
+        background-color: #45a049;
+    }
 
-#logoutbtn:hover{
-    color: white;
-}
+
+
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      td, th {
+        border: 1px solid #dddddd;
+        text-align:center;
+        padding: 8px;
+      }
+      
+    .profile>button{
+        padding: 10px;
+    }

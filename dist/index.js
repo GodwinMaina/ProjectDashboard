@@ -1,6 +1,6 @@
 "use strict";
 let toggleform = document.querySelector('#toggleform');
-let createProjectform = document.querySelector('.createEmployeeform');
+let createProjectform = document.querySelector('.createProjectform');
 let projectName = document.querySelector('#projectName');
 let owner = document.querySelector('#owner');
 let Url = document.querySelector('#Url');
@@ -18,12 +18,12 @@ let currentProject;
 toggleform.addEventListener("click", (() => {
     if (createProjectform.style.display == 'none') {
         createProjectform.style.display = 'flex';
-        toggleform.textContent = 'Close Form';
+        toggleform.textContent = 'Close';
         toggleform.style.backgroundColor = 'red';
     }
     else {
         createProjectform.style.display = 'none';
-        toggleform.textContent = 'Add User';
+        toggleform.textContent = 'Add Project';
         toggleform.style.backgroundColor = '#0c63dd';
     }
 }));
@@ -52,7 +52,7 @@ createProjectform.addEventListener("submit", (e) => {
         else {
             Projects.push(projectDetails);
         }
-        instance.displayEmployees();
+        instance.displayProjects();
         projectName.value = "";
         owner.value = "";
         profile.value = "";
@@ -70,19 +70,19 @@ createProjectform.addEventListener("submit", (e) => {
     }
 });
 class PROJECT {
-    displayEmployees() {
+    displayProjects() {
         let allprofiles = document.querySelectorAll('.profiles .profile');
         allprofiles.forEach(el => {
             el.remove();
         });
         Projects.forEach((projo, index) => {
-            let profile = document.createElement('tr');
-            profile.className = "profile";
+            let profileImg = document.createElement('tr');
+            profileImg.className = "profile";
             let numbering = document.createElement('td');
             numbering.textContent = `${index + 1}`;
-            let profile_url = document.createElement('img');
-            profile_url.setAttribute("src", projo.profile);
-            profile_url.className = "profileUrl";
+            let profiles = document.createElement('img');
+            profiles.setAttribute("src", projo.profile);
+            profiles.className = "profile";
             let projectName = document.createElement('td');
             projectName.textContent = projo.projectName;
             let owner = document.createElement('td');
@@ -107,34 +107,37 @@ class PROJECT {
             deletebtn.textContent = "Delete";
             deletebtn.style.backfaceVisibility = 'red';
             deletebtn.addEventListener('click', () => {
-                this.deleteEmployee(index);
+                this.deleteProduct(index);
             });
             let updatebtn = document.createElement('button');
             updatebtn.textContent = "Update";
-            updatebtn.style.backfaceVisibility = 'skyblue';
+            updatebtn.style.backfaceVisibility = 'green';
             updatebtn.addEventListener('click', () => {
-                this.updateEmployee(index);
+                this.updateProjects(index);
             });
             profile.appendChild(numbering);
-            profile.appendChild(profile_url);
-            profile.appendChild(profiles);
+            profile.appendChild(profileImg);
+            profile.appendChild(projectName);
+            profile.appendChild(owner);
             profile.appendChild(Url);
-            profile.appendChild(budget);
+            // profile.appendChild(profile)
             profile.appendChild(description);
-            profile.appendChild(projectState);
+            profile.appendChild(budget);
+            profile.appendChild(collaborators);
             profile.appendChild(deadline);
             profile.appendChild(taskOverdue);
             profile.appendChild(finance);
+            profile.appendChild(projectState);
             profile.appendChild(deletebtn);
             profile.appendChild(updatebtn);
             profiles.appendChild(profile);
         });
     }
-    deleteEmployee(index) {
+    deleteProduct(index) {
         Projects.splice(index, 1);
-        this.displayEmployees();
+        this.displayProjects();
     }
-    updateEmployee(index) {
+    updateProjects(index) {
         currentProject = index;
         console.log(currentProject);
         createProjectform.style.display = 'flex';
@@ -153,4 +156,4 @@ class PROJECT {
     }
 }
 let instance = new PROJECT();
-instance.displayEmployees();
+instance.displayProjects();

@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <nav>
+        <a href="/public/index.html">Home</a>
+        <div class="logo">Project Managment Dashboard</div>
+
+    </nav>
+    <hr>
+
+
+    <h2>Welcome to this Dashboard </h2>
+    <h4>let me help you to manage your projects...</h4>
+    <h5>Add projecs</h5>
+   
+    
+    <!-- <button id="toggleform">Create Project</button> -->
+
+    <div class="form-container">
+        
+        <form class="createProjectform">
+
+            <label for="projectName">Project Name</label>
+            <input type="text" placeholder="eg Power Mnagment system" id="projectName">
+           
+           <label for="">Owner</label>
+           <input type="text" placeholder=" eg Godwin G" id="owner">
+           
+             <label for="">Url</label>
+            <input type="text" placeholder=" eg https://godwin.com" id="Url">
+
+            <label for="">Profile</label>
+            <input type="text" placeholder=" head" id="profile">
+
+            <label for="">Description</label>
+            <input type="text" placeholder="eg power Managment enhancment method" id="description">
+
+            <label for="">Budget</label>
+            <input type="number" placeholder=" eg $100" id="budget">
+
+            <label for="">Collaborators</label>
+            <input type="text" placeholder=" eg MR Godwin Laruso" id="collaborators">
+
+            <label for="">Deadline</label>
+            <input type="datetime-local" placeholder=" eg Dec 2024" id="deadline">
+
+            <label for="">Overdue Tasks</label>
+            <input type="text" placeholder=" eg Adding pieCharts" id="overdue">
+
+            <label for="">Financiers</label>
+            <input type="text" placeholder="eg WorldBank" id="finance">
+
+            <select id="ProjectState">
+                <option value="">--Select project state--</option>
+                <option value="planning">Planning</option>
+                <option value="design">Design</option>
+                <option value="development">Development</option>
+                <option value="testing">Testing</option>
+                <option value="release">Release</option>
+            </select>
+            <input type="submit" value="Create Project" id="createEmployeebtn">
+        </form>
+
+        <button id="toggleform">Create Project</button>
+    </div>
+
+
+<script src="/dist/index.js"></script>
+</body>
+</html>
