@@ -95,7 +95,7 @@ createProjectform.addEventListener("submit", (e)=>{
      finance.value=""
 
         createProjectform.style.display = 'none'
-        toggleform.textContent = 'Add User'
+        toggleform.textContent = 'Add Project'
         toggleform.style.backgroundColor = '#0c63dd'
         
     }

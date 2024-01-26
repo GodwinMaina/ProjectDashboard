@@ -1,5 +1,7 @@
 body{
-    background-color: #5393EE;
+    background-color: whitesmoke;
+    font-size: 30px;
+    text-align: center;
 }
 
 nav{
@@ -9,6 +11,24 @@ nav{
 
 }
 
+
+.createEmployeeform{
+
+   align-items: center;
+   display: flex;
+   text-align: center;
+   flex-wrap: wrap;
+    background-color:whitesmoke;
+}
+
+.createEmployeeform input {
+width: 50vw;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px auto;
+}
 #logoutbtn{
     background-color: #5393EE;
     border: none;

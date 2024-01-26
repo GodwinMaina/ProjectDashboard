@@ -65,7 +65,7 @@ createProjectform.addEventListener("submit", (e) => {
         taskOverdue.value = "";
         finance.value = "";
         createProjectform.style.display = 'none';
-        toggleform.textContent = 'Add User';
+        toggleform.textContent = 'Add Project';
         toggleform.style.backgroundColor = '#0c63dd';
     }
 });
