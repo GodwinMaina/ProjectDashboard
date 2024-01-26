@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT MANAGMENT DASHBOARD</title>
+    <link rel="stylesheet" href="index.css">
+
+</head>
+<body>
+    
+
+    <nav>
+        <div class="logo">Project Managment Dashboard</div>
+        <button id="logoutbtn">create</button>
+    </nav>
+    <hr>
+
+    <div class="form-container">
+        <form class="createEmployeeform" style="display: none;">
+
+            <label for="projrctName">Project Name</label>
+                <input type="text" placeholder="Enter Project Name" id="projectName">
+           
+           <label for="">Owner</label>
+           <input type="text" placeholder="owner" id="owner">
+           
+             <label for="">Url</label>
+            <input type="text" placeholder="Input Url" id="Url">
+
+            <label for="">Description</label>
+            <input type="text" placeholder="description" id="description">
+
+            <label for="">Budget</label>
+            <input type="number" placeholder="budget" id="budget">
+
+            <label for="">Collaborators</label>
+            <input type="text" placeholder="collaborators" id="collaborators">
+
+            <label for="">Deadline</label>
+            <input type="text" placeholder="deadline" id="deadline">
+
+            <label for="">Overdue Tasks</label>
+            <input type="text" placeholder="overdue" id="overdue">
+
+            <label for="">Finance</label>
+            <input type="text" placeholder="finance" id="finance">
+
+            <select id="ProjectState">
+                <option value="">--Select project state--</option>
+                <option value="planning">Planning</option>
+                <option value="design">Design</option>
+                <option value="development">Development</option>
+                <option value="testing">Testing</option>
+                <option value="release">Release</option>
+            </select>
+            <input type="submit" value="Create Employee" id="createEmployeebtn">
+        </form>
+
+        <button id="toggleform">Create Project</button>
+    </div>
+
+    <table class="profiles" style="margin-top: 20px;">
+
+        <tr class="tableheading">
+
+            <th>Project Title</th>
+            <th>owner</th>
+            <th>Project field</th>
+            <th>project description</th>
+            <th>year-founded</th>
+            <th>projectUrl</th>
+            <th>State</th>
+            <th>Collaborators</th>
+            <th>Budget</th>
+        </tr>
+    </table>
+
+
+    <script src="/dist/index.js"></script>
+</body>
+</html>

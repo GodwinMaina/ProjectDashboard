@@ -1,0 +1,21 @@
+body{
+    background-color: #5393EE;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+}
+
+#logoutbtn{
+    background-color: #5393EE;
+    border: none;
+    cursor: pointer;
+
+}
+
+#logoutbtn:hover{
+    color: white;
+}
