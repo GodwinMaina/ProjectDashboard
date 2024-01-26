@@ -1,10 +1,12 @@
+
+document.addEventListener('DOMContentLoaded',()=>{
+
 let toggleform = document.querySelector('#toggleform') as HTMLButtonElement;
 let createProjectform = document.querySelector('.createProjectform') as HTMLFormElement
 
 let projectName = document.querySelector('#projectName') as HTMLInputElement
 let owner = document.querySelector('#owner') as HTMLInputElement
 let Url = document.querySelector('#Url') as HTMLInputElement
-let profile  = document.querySelector('#profile') as HTMLInputElement
 let budget = document.querySelector('#budget') as HTMLInputElement
 let description = document.querySelector('#description') as HTMLInputElement
 let projectState = document.querySelector('#projectState') as HTMLInputElement
@@ -13,28 +15,28 @@ let deadline = document.querySelector('#deadline') as HTMLInputElement
 let taskOverdue = document.querySelector('#overdue') as HTMLInputElement
 let finance = document.querySelector("#finance") as HTMLInputElement
 
-let profiles = document.querySelector('.profiles') as HTMLTableElement
+let profiles = document.getElementById('profiles') as HTMLTableElement;
+
 
 // currentproject
 let currentProject:number;
 
-toggleform.addEventListener("click", (()=>{
-    if(createProjectform.style.display == 'none'){
-        createProjectform.style.display = 'flex'
-        toggleform.textContent = 'Close'
-        toggleform.style.backgroundColor = 'red'
-    }else{
-        createProjectform.style.display = 'none'
-        toggleform.textContent = 'Add Project'
-        toggleform.style.backgroundColor = '#0c63dd'
-    }
-}))
+// toggleform.addEventListener("click", (()=>{
+//     if(createProjectform.style.display == 'none'){
+//         createProjectform.style.display = 'flex'
+//         toggleform.textContent = 'Close'
+//         toggleform.style.backgroundColor = 'red'
+//     }else{
+//         createProjectform.style.display = 'none'
+//         toggleform.textContent = 'Add Project'
+//         toggleform.style.backgroundColor = '#0c63dd'
+//     }
+// }))
 
 interface Project{
     id: number;
     projectName:string;
     owner:string;
-    profile:string;
     Url:string;
     budget:string;
    description:string; 
@@ -51,7 +53,7 @@ let Projects: Project [] = []
 createProjectform.addEventListener("submit", (e)=>{
     e.preventDefault()
 
-    let ProJect = projectName.value.trim() != ""  && Url.value.trim() != "" && owner.value.trim() != "" && finance.value.trim() != "" && projectState.value.trim() != "" && collaborators.value.trim() != "" && deadline.value.trim() != "" && taskOverdue.value.trim() != "" && finance.value.trim() != "" && profile.value.trim() != "" && deadline.value.trim() != "" && collaborators.value.trim() != "" && budget.value.trim() != "" 
+    let ProJect = projectName.value.trim() != ""  && Url.value.trim() != "" && owner.value.trim() != "" && finance.value.trim() != "" && projectState.value.trim() != "" && collaborators.value.trim() != "" && deadline.value.trim() != "" && taskOverdue.value.trim() != "" && finance.value.trim() != ""  && deadline.value.trim() != "" && collaborators.value.trim() != "" && budget.value.trim() != "" 
 
     if(ProJect){
         let projectDetails = {
@@ -62,7 +64,6 @@ createProjectform.addEventListener("submit", (e)=>{
             Url: Url.value.trim(),
             projectState: projectState.value.trim(),
             description: description.value.trim(),
-            profile: profile.value.trim(),
             deadline: deadline.value.trim(),
             finance:finance.value.trim(),
             taskOverdue:taskOverdue.value.trim(),
@@ -78,13 +79,15 @@ createProjectform.addEventListener("submit", (e)=>{
 
         }else{
             Projects.push(projectDetails)
+
+            // console.log(projectDetails);
+            
         }
 
         instance.displayProjects()
 
         projectName.value=""
         owner.value=""
-        profile.value=""
         Url.value=""
         budget.value=""
        description.value="" 
@@ -113,15 +116,14 @@ class PROJECT{
 
         Projects.forEach((projo: Project, index:number)=>{
 
-            let profileImg = <HTMLTableRowElement >document.createElement('tr')
-            profileImg.className = "profile"
+            let profile = <HTMLTableRowElement >document.createElement('tr')
+            profile.className = "profile"
+
+            console.log(profiles);
 
             let numbering = document.createElement('td') as HTMLTableCellElement
             numbering.textContent = `${index + 1}`
 
-            let profiles= document.createElement('img') as HTMLImageElement
-            profiles.setAttribute("src", projo.profile)
-            profiles.className= "profile"
 
             let projectName = document.createElement('td') as HTMLTableCellElement
             projectName.textContent = projo.projectName
@@ -170,11 +172,9 @@ class PROJECT{
             })
 
             profile.appendChild(numbering)
-            profile.appendChild(profileImg)
             profile.appendChild(projectName)
             profile.appendChild(owner)
             profile.appendChild(Url)
-            // profile.appendChild(profile)
             profile.appendChild(description)
             profile.appendChild(budget)
             profile.appendChild(collaborators)
@@ -183,7 +183,6 @@ class PROJECT{
             profile.appendChild(finance)
             profile.appendChild(projectState)
         
-            
             profile.appendChild(deletebtn)
             profile.appendChild(updatebtn)
 
@@ -201,7 +200,7 @@ class PROJECT{
     updateProjects(index:number){
         currentProject= index
 
-        console.log(currentProject);
+        // console.log(currentProject);
         
         createProjectform.style.display = 'flex'
 
@@ -210,7 +209,6 @@ class PROJECT{
 
         projectName.value=user.projectName
         owner.value=user.owner
-        profile.value=user.profile
         Url.value=user.Url
         budget.value=user.budget
        description.value=user.description
@@ -228,3 +226,5 @@ class PROJECT{
 let instance = new PROJECT()
 
 instance.displayProjects()
+
+});
